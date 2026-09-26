@@ -156,12 +156,12 @@ const Chair = () => {
             Need help with assembly, adjustments, or warranty claims? Our ergonomics experts are standing by.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white border border-gray-200 text-gray-900 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors">
+            <a href="https://wa.me/919219550811" target="_blank" rel="noopener noreferrer" className="bg-white border border-gray-200 text-gray-900 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors text-center">
               Contact Support
-            </button>
-            <button className="bg-white border border-gray-200 text-gray-900 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors">
+            </a>
+            <a href="https://wa.me/919219550811" target="_blank" rel="noopener noreferrer" className="bg-white border border-gray-200 text-gray-900 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors text-center">
               Request Repair
-            </button>
+            </a>
           </div>
         </div>
       </section>

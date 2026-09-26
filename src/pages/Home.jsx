@@ -1,11 +1,21 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = ["/img/WB.png", "/img/WBB.png"];
+
   useEffect(() => {
-    document.title = "Spark | Premium Everyday Essentials";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", "Spark designs premium, minimalist everyday products like the Spark Bottle and Spark Chair. Engineered for modern life.");
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    document.title = "Spark Neer | Premium Everyday Essentials";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Spark Neer designs premium, minimalist everyday products. Engineered for modern life.");
   }, []);
 
   return (
@@ -15,7 +25,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-50 via-white to-white opacity-60"></div>
         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
           <span className="inline-block py-1 px-3 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold tracking-wide uppercase mb-6 shadow-sm">
-            Meet Spark
+            Meet Spark Neer
           </span>
           <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-brand-900 mb-8 leading-tight">
             Designed for <br className="hidden sm:block" /> everyday life.
@@ -43,16 +53,24 @@ const Home = () => {
             {/* Product Card 1: Bottle */}
             <Link to="/bottle" className="group block h-full">
               <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 h-full flex flex-col border border-gray-100">
-                <div className="aspect-[4/3] bg-gray-100 relative overflow-hidden flex items-center justify-center p-8">
-                  {/* Placeholder for Bottle Image */}
-                  <div className="w-32 h-64 bg-gray-200 rounded-full shadow-inner transform group-hover:scale-105 transition-transform duration-700 ease-in-out flex items-center justify-center">
-                    <span className="text-gray-400 font-medium rotate-90 whitespace-nowrap">Spark Bottle</span>
+                <div className="aspect-[4/3] bg-brand-50/30 relative overflow-hidden flex items-center justify-center p-4">
+                  <div className="relative w-full h-full flex justify-center items-center transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                    <img 
+                      src="/img/WB.png" 
+                      alt="Spark Neer Bottle" 
+                      className={`absolute top-0 w-auto h-full max-h-64 object-contain transition-opacity duration-700 ease-in-out ${currentImageIndex === 0 ? 'opacity-100' : 'opacity-0'}`}
+                    />
+                    <img 
+                      src="/img/WBB.png" 
+                      alt="Spark Neer Bottle Back" 
+                      className={`absolute top-0 w-auto h-full max-h-64 object-contain transition-opacity duration-700 ease-in-out ${currentImageIndex === 1 ? 'opacity-100' : 'opacity-0'}`}
+                    />
                   </div>
                 </div>
                 <div className="p-8 flex flex-col flex-grow">
                   <div className="flex justify-between items-end mb-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-1">Spark Bottle</h3>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-1">Spark Neer</h3>
                       <p className="text-gray-500 font-medium">Hydration, redefined.</p>
                     </div>
                     <ArrowRight className="h-6 w-6 text-brand-600 transform group-hover:translate-x-2 transition-transform" />
